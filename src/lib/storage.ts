@@ -133,6 +133,12 @@ async function ensureDataDir(): Promise<void> {
 }
 
 async function readOrSeedJson<T>(filePath: string, seedValue: T): Promise<T> {
+  // Never attempt local filesystem directory creation in serverless environments
+  // when a cloud DATABASE_URL has not been attached yet.
+  if (process.env.VERCEL && !getDatabaseUrl()) {
+    return seedValue;
+  }
+
   try {
     await ensureDataDir();
     const raw = await fs.readFile(filePath, "utf8");
@@ -144,13 +150,18 @@ async function readOrSeedJson<T>(filePath: string, seedValue: T): Promise<T> {
         await writeJsonAtomic(filePath, seedValue);
       } catch (writeErr: unknown) {
         const writeCode = (writeErr as NodeJS.ErrnoException)?.code;
-        if (writeCode !== "EROFS" && writeCode !== "EACCES") {
+        if (
+          writeCode !== "EROFS" &&
+          writeCode !== "EACCES" &&
+          writeCode !== "EPERM" &&
+          writeCode !== "ENOENT"
+        ) {
           throw writeErr;
         }
       }
       return seedValue;
     }
-    if (code === "EROFS" || code === "EACCES") {
+    if (code === "EROFS" || code === "EACCES" || code === "EPERM") {
       return seedValue;
     }
     throw err;
