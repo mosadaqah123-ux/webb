@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy-primary: #0B1930;
+  --gold-accent: #B5A181;
+  --ivory-bg: #F7F8FA;
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #081224;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #253957;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B5A181;
+}
+
+/* Subtle Najdi Architectural Motif Overlay */
+.najdi-pattern-dark {
+  background-image: radial-gradient(rgba(181, 161, 129, 0.08) 1px, transparent 1px),
+                    radial-gradient(rgba(181, 161, 129, 0.04) 1px, #0B1930 1px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+.najdi-pattern-light {
+  background-image: radial-gradient(rgba(11, 25, 48, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Traditional Najdi Architectural Triangle Frieze Border */
+.najdi-frieze {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(181, 161, 129, 0.25) 0,
+    rgba(181, 161, 129, 0.25) 2px,
+    transparent 0,
+    transparent 8px
+  );
+}
+
+/* Subtle Architectural Arch Frame */
+.arch-card {
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

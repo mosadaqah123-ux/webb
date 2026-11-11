@@ -1,0 +1,42 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' width='1920' height='1080'>
+  <defs>
+    <linearGradient id='heroSky' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#040A14'/>
+      <stop offset='45%' stop-color='#0B1930'/>
+      <stop offset='85%' stop-color='#102344'/>
+      <stop offset='100%' stop-color='#060D1A'/>
+    </linearGradient>
+    <linearGradient id='pillarGold' x1='0%' y1='0%' x2='100%' y2='0%'>
+      <stop offset='0%' stop-color='rgba(181, 161, 129, 0.05)'/>
+      <stop offset='50%' stop-color='rgba(181, 161, 129, 0.22)'/>
+      <stop offset='100%' stop-color='rgba(181, 161, 129, 0.02)'/>
+    </linearGradient>
+    <radialGradient id='heroGlow' cx='50%' cy='45%' r='60%'>
+      <stop offset='0%' stop-color='#B5A181' stop-opacity='0.22'/>
+      <stop offset='50%' stop-color='#0B1930' stop-opacity='0.4'/>
+      <stop offset='100%' stop-color='#040A14' stop-opacity='0.95'/>
+    </radialGradient>
+    <pattern id='najdiHeroGrid' width='60' height='60' patternUnits='userSpaceOnUse'>
+      <path d='M 30 0 L 60 30 L 30 60 L 0 30 Z' fill='none' stroke='rgba(181, 161, 129, 0.05)' stroke-width='1'/>
+    </pattern>
+  </defs>
+  
+  <rect width='1920' height='1080' fill='url(#heroSky)'/>
+  <rect width='1920' height='1080' fill='url(#najdiHeroGrid)'/>
+  <rect width='1920' height='1080' fill='url(#heroGlow)'/>
+  
+  <!-- Architectural Fluted Pillars representing Judicial Halls & Authority -->
+  <rect x='150' y='0' width='80' height='1080' fill='url(#pillarGold)'/>
+  <rect x='320' y='0' width='65' height='1080' fill='url(#pillarGold)'/>
+  <rect x='1535' y='0' width='65' height='1080' fill='url(#pillarGold)'/>
+  <rect x='1690' y='0' width='80' height='1080' fill='url(#pillarGold)'/>
+  
+  <!-- Center Arch Silhouette -->
+  <path d='M 560 1080 L 560 480 C 560 220 1360 220 1360 480 L 1360 1080' fill='none' stroke='rgba(181, 161, 129, 0.18)' stroke-width='2'/>
+  <path d='M 620 1080 L 620 500 C 620 280 1300 280 1300 500 L 1300 1080' fill='none' stroke='rgba(181, 161, 129, 0.1)' stroke-width='1'/>
+  
+  <!-- Triangular Frieze at top architrave -->
+  <g fill='rgba(181, 161, 129, 0.12)'>
+    <polygon points='0,40 20,10 40,40'/><polygon points='40,40 60,10 80,40'/><polygon points='80,40 100,10 120,40'/><polygon points='120,40 140,10 160,40'/><polygon points='160,40 180,10 200,40'/><polygon points='200,40 220,10 240,40'/><polygon points='240,40 260,10 280,40'/><polygon points='280,40 300,10 320,40'/><polygon points='320,40 340,10 360,40'/><polygon points='360,40 380,10 400,40'/><polygon points='400,40 420,10 440,40'/><polygon points='440,40 460,10 480,40'/><polygon points='480,40 500,10 520,40'/><polygon points='520,40 540,10 560,40'/><polygon points='560,40 580,10 600,40'/><polygon points='600,40 620,10 640,40'/><polygon points='640,40 660,10 680,40'/><polygon points='680,40 700,10 720,40'/><polygon points='720,40 740,10 760,40'/><polygon points='760,40 780,10 800,40'/><polygon points='800,40 820,10 840,40'/><polygon points='840,40 860,10 880,40'/><polygon points='880,40 900,10 920,40'/><polygon points='920,40 940,10 960,40'/><polygon points='960,40 980,10 1000,40'/><polygon points='1000,40 1020,10 1040,40'/><polygon points='1040,40 1060,10 1080,40'/><polygon points='1080,40 1100,10 1120,40'/><polygon points='1120,40 1140,10 1160,40'/><polygon points='1160,40 1180,10 1200,40'/><polygon points='1200,40 1220,10 1240,40'/><polygon points='1240,40 1260,10 1280,40'/><polygon points='1280,40 1300,10 1320,40'/><polygon points='1320,40 1340,10 1360,40'/><polygon points='1360,40 1380,10 1400,40'/><polygon points='1400,40 1420,10 1440,40'/><polygon points='1440,40 1460,10 1480,40'/><polygon points='1480,40 1500,10 1520,40'/><polygon points='1520,40 1540,10 1560,40'/><polygon points='1560,40 1580,10 1600,40'/><polygon points='1600,40 1620,10 1640,40'/><polygon points='1640,40 1660,10 1680,40'/><polygon points='1680,40 1700,10 1720,40'/><polygon points='1720,40 1740,10 1760,40'/><polygon points='1760,40 1780,10 1800,40'/><polygon points='1800,40 1820,10 1840,40'/><polygon points='1840,40 1860,10 1880,40'/><polygon points='1880,40 1900,10 1920,40'/>
+  </g>
+</svg>
