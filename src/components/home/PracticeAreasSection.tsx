@@ -113,11 +113,11 @@ export default function PracticeAreasSection({
 
                   <div>
                     {/* Top Bar with Icon & Title */}
-                    <div className="flex items-start justify-between mb-5">
-                      <div className="w-12 h-12 rounded-lg bg-navy-800/80 border border-gold-400/30 text-gold-300 flex items-center justify-center transition-all duration-300 group-hover:bg-gold-400 group-hover:text-navy-950 group-hover:border-gold-400">
+                    <div className="flex items-start justify-between gap-3 mb-5">
+                      <div className="w-12 h-12 rounded-lg bg-navy-800/80 border border-gold-400/30 text-gold-300 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-gold-400 group-hover:text-navy-950 group-hover:border-gold-400">
                         <Icon className="w-6 h-6 transition-transform duration-300 group-hover:scale-105" />
                       </div>
-                      <span className="text-[11px] font-mono text-gold-400/70 tracking-wider">
+                      <span className="text-[11px] font-mono text-gold-400/70 tracking-wider text-left">
                         {practice.titleEn}
                       </span>
                     </div>

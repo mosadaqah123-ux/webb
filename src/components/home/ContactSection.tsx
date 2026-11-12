@@ -79,7 +79,17 @@ export default function ContactSection({
     }
   };
 
-  const contactItems = [
+  const contactItems: {
+    icon: React.ElementType;
+    title: string;
+    line1: string;
+    line1Dir?: "ltr" | "rtl";
+    line1Class?: string;
+    line2: string;
+    line2Dir?: "ltr" | "rtl";
+    line2Suffix?: string;
+    line2Class?: string;
+  }[] = [
     {
       icon: MapPin,
       title: siteSettings.headquartersTitleAr,
@@ -91,9 +101,12 @@ export default function ContactSection({
       icon: Phone,
       title: "الاتصال المباشر",
       line1: siteSettings.phonePrimary,
-      line1Class: "font-mono dir-ltr text-right",
-      line2: `${siteSettings.phoneWhatsapp} (واتساب الأعمال)`,
-      line2Class: "text-gold-400/70 font-mono dir-ltr text-right",
+      line1Dir: "ltr" as const,
+      line1Class: "font-mono text-right inline-block",
+      line2: siteSettings.phoneWhatsapp,
+      line2Dir: "ltr" as const,
+      line2Suffix: " (واتساب الأعمال)",
+      line2Class: "text-gold-400/70 font-mono text-right",
     },
     {
       icon: Mail,
@@ -159,10 +172,11 @@ export default function ContactSection({
                           {item.title}
                         </div>
                         <div className={`text-ivory-300/80 ${item.line1Class || ""}`}>
-                          {item.line1}
+                          <span dir={item.line1Dir}>{item.line1}</span>
                         </div>
                         <div className={item.line2Class || "text-ivory-300/70"}>
-                          {item.line2}
+                          <span dir={item.line2Dir}>{item.line2}</span>
+                          {"line2Suffix" in item && item.line2Suffix ? item.line2Suffix : null}
                         </div>
                       </div>
                     </div>
@@ -183,7 +197,7 @@ export default function ContactSection({
           {/* Right Column: Interactive Consultation Booking Form */}
           <div className="lg:col-span-7">
             <ScrollReveal delay={120}>
-              <div className="relative bg-navy-900/80 rounded-2xl border border-gold-400/30 hover:border-gold-400/40 p-8 sm:p-10 shadow-2xl backdrop-blur-md transition-all duration-300">
+              <div className="relative bg-navy-900/80 rounded-2xl border border-gold-400/30 hover:border-gold-400/40 p-5 sm:p-8 lg:p-10 shadow-2xl backdrop-blur-md transition-all duration-300">
                 <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 rounded-t-2xl" />
 
                 {submittedId ? (

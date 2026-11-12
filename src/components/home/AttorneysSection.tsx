@@ -80,15 +80,15 @@ export default function AttorneysSection({
             </p>
           </div>
 
-          {/* Dedicated Single-Row Category Filter Bar */}
-          <div className="mb-10 sm:mb-12 flex flex-wrap items-center gap-2">
-            <div className="inline-flex flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-xl border border-navy-200/80 shadow-sm text-xs">
+          {/* Dedicated Category Filter Bar */}
+          <div className="mb-10 sm:mb-12">
+            <div className="grid grid-cols-2 sm:inline-flex sm:flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-xl border border-navy-200/80 shadow-sm text-xs w-full sm:w-auto">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
                   type="button"
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`px-3.5 py-2 rounded-lg transition-all duration-200 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 ${
+                  className={`px-3 py-2 rounded-lg transition-all duration-200 text-center whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 ${
                     activeCategory === cat.id
                       ? "bg-navy-900 text-gold-300 font-bold shadow-sm"
                       : "text-navy-700 hover:text-navy-950 hover:bg-ivory-100"
