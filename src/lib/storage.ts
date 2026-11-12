@@ -77,6 +77,19 @@ async function ensurePostgresSchema(): Promise<void> {
           data JSONB NOT NULL
         );
       `);
+      await pool.query(`
+        ALTER TABLE musadqh_attorneys ENABLE ROW LEVEL SECURITY;
+        ALTER TABLE musadqh_site_settings ENABLE ROW LEVEL SECURITY;
+        ALTER TABLE musadqh_requests ENABLE ROW LEVEL SECURITY;
+        DO $$
+        BEGIN
+          REVOKE ALL ON TABLE musadqh_requests FROM anon, authenticated;
+          REVOKE ALL ON TABLE musadqh_attorneys FROM anon, authenticated;
+          REVOKE ALL ON TABLE musadqh_site_settings FROM anon, authenticated;
+        EXCEPTION WHEN undefined_object THEN
+          NULL;
+        END $$;
+      `);
 
       // Seed attorneys once if table is empty
       const attCountRes = await pool.query<{ count: string }>(
