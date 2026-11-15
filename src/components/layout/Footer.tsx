@@ -117,11 +117,22 @@ export default function Footer({
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-gold-400 shrink-0" />
-                <span dir="ltr" className="font-mono text-ivory-200">{siteSettings.phonePrimary}</span>
+                <a
+                  href={`tel:${siteSettings.phonePrimary}`}
+                  dir="ltr"
+                  className="font-mono text-ivory-200 hover:text-gold-300 transition-colors"
+                >
+                  {siteSettings.phonePrimary}
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-gold-400 shrink-0" />
-                <span className="font-mono text-ivory-200">{siteSettings.footerEmail}</span>
+                <a
+                  href={`mailto:${siteSettings.footerEmail}`}
+                  className="font-mono text-ivory-200 hover:text-gold-300 transition-colors"
+                >
+                  {siteSettings.footerEmail}
+                </a>
               </div>
             </div>
 

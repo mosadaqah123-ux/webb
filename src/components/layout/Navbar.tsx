@@ -150,7 +150,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
               </button>
 
               <div className="flex items-center justify-between text-xs text-ivory-300/80 px-2 pt-2">
-                <span>الرياض - طريق الملك فهد</span>
+                <span>المقر الرئيسي: حائل</span>
                 <span className="text-gold-400 font-mono">AR | EN</span>
               </div>
             </div>

@@ -83,9 +83,11 @@ export default function ContactSection({
     icon: React.ElementType;
     title: string;
     line1: string;
+    line1Href?: string;
     line1Dir?: "ltr" | "rtl";
     line1Class?: string;
     line2: string;
+    line2Href?: string;
     line2Dir?: "ltr" | "rtl";
     line2Suffix?: string;
     line2Class?: string;
@@ -101,9 +103,11 @@ export default function ContactSection({
       icon: Phone,
       title: "الاتصال المباشر",
       line1: siteSettings.phonePrimary,
+      line1Href: `tel:${siteSettings.phonePrimary.replace(/\s+/g, "")}`,
       line1Dir: "ltr" as const,
       line1Class: "font-mono text-right inline-block",
       line2: siteSettings.phoneWhatsapp,
+      line2Href: `https://wa.me/966${siteSettings.phoneWhatsapp.replace(/[^0-9]/g, "").replace(/^0/, "")}`,
       line2Dir: "ltr" as const,
       line2Suffix: " (واتساب الأعمال)",
       line2Class: "text-gold-400/70 font-mono text-right",
@@ -112,8 +116,10 @@ export default function ContactSection({
       icon: Mail,
       title: "المراسلات الرسمية الموثقة",
       line1: siteSettings.emailConsultations,
+      line1Href: `mailto:${siteSettings.emailConsultations}`,
       line1Class: "font-mono",
       line2: siteSettings.emailInfo,
+      line2Href: `mailto:${siteSettings.emailInfo}`,
       line2Class: "text-gold-400/70 font-mono",
     },
     {
@@ -172,11 +178,36 @@ export default function ContactSection({
                           {item.title}
                         </div>
                         <div className={`text-ivory-300/80 ${item.line1Class || ""}`}>
-                          <span dir={item.line1Dir}>{item.line1}</span>
+                          {item.line1Href ? (
+                            <a
+                              href={item.line1Href}
+                              dir={item.line1Dir}
+                              className="hover:text-gold-300 transition-colors"
+                            >
+                              {item.line1}
+                            </a>
+                          ) : (
+                            <span dir={item.line1Dir}>{item.line1}</span>
+                          )}
                         </div>
                         <div className={item.line2Class || "text-ivory-300/70"}>
-                          <span dir={item.line2Dir}>{item.line2}</span>
-                          {"line2Suffix" in item && item.line2Suffix ? item.line2Suffix : null}
+                          {item.line2Href ? (
+                            <a
+                              href={item.line2Href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              dir={item.line2Dir}
+                              className="hover:text-gold-300 transition-colors inline-block"
+                            >
+                              <span>{item.line2}</span>
+                              {"line2Suffix" in item && item.line2Suffix ? item.line2Suffix : null}
+                            </a>
+                          ) : (
+                            <>
+                              <span dir={item.line2Dir}>{item.line2}</span>
+                              {"line2Suffix" in item && item.line2Suffix ? item.line2Suffix : null}
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>
