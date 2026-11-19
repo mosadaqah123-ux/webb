@@ -14,6 +14,7 @@ import Footer from "@/components/layout/Footer";
 import AttorneyModal from "@/components/modals/AttorneyModal";
 import PracticeModal from "@/components/modals/PracticeModal";
 import ConsultationModal from "@/components/modals/ConsultationModal";
+import LoadingScreen from "@/components/ui/LoadingScreen";
 
 import { Attorney } from "@/data/attorneys";
 import { PracticeArea } from "@/data/practiceAreas";
@@ -37,6 +38,9 @@ export default function HomeClient({ attorneys, siteSettings }: HomeClientProps)
 
   return (
     <div className="min-h-screen bg-ivory-50 text-navy-900 selection:bg-gold-400/30 selection:text-navy-950 font-arabic overflow-x-hidden w-full max-w-full">
+      {/* Sovereign Law Firm Preloader */}
+      <LoadingScreen />
+
       {/* Navigation */}
       <Navbar onOpenConsultation={() => handleOpenConsultation("استشارة عامة")} />
 
